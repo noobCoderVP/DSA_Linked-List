@@ -14,19 +14,21 @@ public:
         Head->next = thirdNode;
         Head = secondNode;
 
-        Node *test = Head->next;
+        Node *test = Head->next; // 2
 
-        while (test->next != NULL)
+        // 1 => 2 => 3 => 4 => NULL
+        while (test->next != NULL) // true for NULL
         {
-            Node *firstNode = test->next;
-            Node *secondNode = test->next->next;
-            Node *thirdNode = test->next->next->next;
+            Node *firstNode = test->next; // 3
+            Node *secondNode = test->next->next; // 4
+            Node *thirdNode = test->next->next->next; // NULL
 
             secondNode->next = firstNode;
             firstNode->next = thirdNode;
             test->next = secondNode;
 
-            test = test->next->next;
+//             incrementing test
+            test = test->next->next; // 4
         }
     }
 };
